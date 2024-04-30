@@ -1,10 +1,10 @@
 resource "aws_iam_role" "external" {
-  name               = var.external_location_name
+  name               = "${local.external_location_name}"
   assume_role_policy = data.aws_iam_policy_document.external_trust.json
 }
 
 resource "aws_iam_role_policy" "metastore_permission" {
-  name   = "s3-${var.external_location_name}"
+  name   = "s3-${local.external_location_name}"
   role   = aws_iam_role.external.id
   policy = data.aws_iam_policy_document.external_permission.json
 }
@@ -52,7 +52,7 @@ data "aws_iam_policy_document" "external_permission" {
     ]
 
     resources = [
-      "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.external_location_name}"
+      "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${local.external_location_name}"
     ]
   }
 }

@@ -1,5 +1,6 @@
 resource "databricks_external_location" "external" {
   provider        = databricks.workspace
+
   for_each        = local.list_of_users
   name            = "external_${aws_s3_object.user_home[each.key].key}"
   url             = "s3://${aws_s3_bucket.external.id}/${aws_s3_object.user_home[each.key].key}"
@@ -7,7 +8,8 @@ resource "databricks_external_location" "external" {
   comment         = "Managed by Terraform"
 
   depends_on = [
-    time_sleep.wait
+    time_sleep.wait,
+    databricks_mws_permission_assignment.add_service_principal_to_workspace
   ]
 }
 
@@ -21,11 +23,10 @@ resource "databricks_external_location" "external" {
 # Solution suggested via Databricks Knowledge Base and available here:
 #  https://kb.databricks.com/terraform/failed-credential-validation-checks-error-with-terraform
 resource "time_sleep" "wait" {
-  create_duration = "15s"
-
+  create_duration = "30s"
   depends_on = [
     databricks_storage_credential.external,
-    aws_iam_role.external
+    aws_iam_role.external,
   ]
 }
 
