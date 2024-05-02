@@ -3,6 +3,14 @@ variable "databricks_account_id" {
   type        = string
 }
 
+variable "databricks_client_id" {
+  type        = string
+}
+
+variable "databricks_client_secret" {
+  type        = string
+}
+
 variable "databricks_workspace_name" {
   type = string
 }

@@ -35,3 +35,5 @@ terraform.rc
 
 # Environment variables
 .env
+./config/instructors.yml
+./config/students.yml

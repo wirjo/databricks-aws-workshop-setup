@@ -7,6 +7,8 @@ resource "databricks_external_location" "external" {
   credential_name = databricks_storage_credential.external.id
   comment         = "Managed by Terraform"
 
+  force_destroy = true
+
   depends_on = [
     time_sleep.wait,
     databricks_mws_permission_assignment.add_service_principal_to_workspace

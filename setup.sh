@@ -8,6 +8,5 @@ tfenv install
 git clone https://github.com/wirjo/databricks-aws-workshop-setup.git
 cd ./databricks-aws-workshop-setup/
 cp .env.template .env 
-
-# Edit the configuration as per the README using vi text editor
-vi .env 
+cp config/instructors.yml.template config/instructors.yml
+cp config/students.yml.template config/students.yml

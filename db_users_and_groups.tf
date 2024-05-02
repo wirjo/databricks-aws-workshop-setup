@@ -10,6 +10,8 @@ locals {
 resource "databricks_user" "user" {
   for_each  = local.list_of_users
   user_name = each.key
+  force = true
+  disable_as_user_deletion = false
 }
 
 #########################################
