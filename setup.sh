@@ -3,6 +3,7 @@ git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 mkdir ~/bin
 ln -s ~/.tfenv/bin/* ~/bin/
 tfenv install
+tfenv use 1.8.2
 
 # Clone the automation script repository
 git clone https://github.com/wirjo/databricks-aws-workshop-setup.git
