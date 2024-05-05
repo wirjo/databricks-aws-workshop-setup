@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "external" {
-  bucket = var.external_location_name
+  bucket = local.external_location_name
 }
 
 resource "aws_s3_object" "user_home" {
