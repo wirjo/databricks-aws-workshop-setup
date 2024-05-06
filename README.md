@@ -13,10 +13,9 @@
 
 ## Setup AWS workshop
 
-* Provision the workshop event and login to the workshop event's **central AWS account**.
-* Go to **Cloud9** and create a new environment with the default settings. 
-* Copy and paste the content in [setup.sh](./setup.sh) and run it on your terminal.
-* Then, `cd ./databricks-aws-workshop-setup/`
+1. Provision the workshop event and login to the workshop event's **central AWS account**.
+1. Go to **Cloud9** and create a new environment with the default settings.
+1. Copy and paste the content in [setup.sh](./setup.sh) and run it on your terminal.
 
 > [!NOTE]  
 > The setup script will install Terraform, clone this repository, and copy/paste that the templates for `.env` and `config/*.yml`.
@@ -33,7 +32,8 @@
 
 2. Update the files `config/instructors.yml` and `config/students.yml` placing the emails in separate lines / items in the YAML file.
 
-**IMPORTANT NOTE**: For `instructors.yml`, ensure that the email is related to an existing user account. (Terraform does not create new users for instructors but only uses the email as reference for an internal search).
+> [!Warning]  
+> For `instructors.yml`, ensure that the email is related to an existing user account. (Terraform does not create new users for instructors but only uses the email as reference for an internal search).
 
 ## Run Terraform
 
